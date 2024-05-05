@@ -1,0 +1,1 @@
+DODGE$Try not hit any obstacles on the road. The game will stop after being hit 5 times.
