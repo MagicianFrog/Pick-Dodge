@@ -1,0 +1,100 @@
+# depslib dependency file v1.0
+1714912680 source:c:\users\pc\documents\pick_&_dodge\main\assets.cpp
+	"assets.hpp"
+
+1714913096 c:\users\pc\documents\pick_&_dodge\main\assets.hpp
+	"gamewindow.hpp"
+
+1714912654 c:\users\pc\documents\pick_&_dodge\main\gamewindow.hpp
+	"params.hpp"
+	<iostream>
+	<deque>
+	<vector>
+	<cstdlib>
+	<ctime>
+	<cmath>
+	<algorithm>
+	<SDL.h>
+	<SDL_image.h>
+
+1714910992 c:\users\pc\documents\pick_&_dodge\main\params.hpp
+
+1714203420 source:c:\users\pc\documents\pick_&_dodge\main\background.cpp
+	"background.hpp"
+
+1714913104 c:\users\pc\documents\pick_&_dodge\main\background.hpp
+	"gamewindow.hpp"
+
+1714912733 source:c:\users\pc\documents\pick_&_dodge\main\car.cpp
+	"car.hpp"
+
+1714913115 c:\users\pc\documents\pick_&_dodge\main\car.hpp
+	"gamewindow.hpp"
+
+1714913806 source:c:\users\pc\documents\pick_&_dodge\main\coin.cpp
+	"coin.hpp"
+
+1714913120 c:\users\pc\documents\pick_&_dodge\main\coin.hpp
+	"gamewindow.hpp"
+	"timer.hpp"
+
+1713706671 c:\users\pc\documents\pick_&_dodge\main\timer.hpp
+
+1714912784 source:c:\users\pc\documents\pick_&_dodge\main\gamestate.cpp
+	"gamestate.hpp"
+	"params.hpp"
+	<fstream>
+	<iostream>
+
+1714203175 c:\users\pc\documents\pick_&_dodge\main\gamestate.hpp
+
+1714912838 source:c:\users\pc\documents\pick_&_dodge\main\gamewindow.cpp
+	"gamewindow.hpp"
+
+1714913767 source:c:\users\pc\documents\pick_&_dodge\main\hud.cpp
+	"hud.hpp"
+	"assets.hpp"
+	"instructions.hpp"
+
+1714913142 c:\users\pc\documents\pick_&_dodge\main\hud.hpp
+	"gamewindow.hpp"
+	"gamestate.hpp"
+
+1714919308 c:\users\pc\documents\pick_&_dodge\main\instructions.hpp
+	<vector>
+	<string>
+	"timer.hpp"
+
+1714919292 source:c:\users\pc\documents\pick_&_dodge\main\instructions.cpp
+	"instructions.hpp"
+	<fstream>
+	<iostream>
+
+1713708748 source:c:\users\pc\documents\pick_&_dodge\main\logic.cpp
+	"logic.hpp"
+
+1713706639 c:\users\pc\documents\pick_&_dodge\main\logic.hpp
+	<SDL.h>
+
+1714914564 source:c:\users\pc\documents\pick_&_dodge\main\main.cpp
+	"logic.hpp"
+	"timer.hpp"
+	"assets.hpp"
+	"background.hpp"
+	"car.hpp"
+	"obstacle.hpp"
+	"coin.hpp"
+	"hud.hpp"
+	"gamestate.hpp"
+	"instructions.hpp"
+
+1714913163 c:\users\pc\documents\pick_&_dodge\main\obstacle.hpp
+	"gamewindow.hpp"
+
+1714913217 source:c:\users\pc\documents\pick_&_dodge\main\obstacle.cpp
+	"obstacle.hpp"
+
+1714913707 source:c:\users\pc\documents\pick_&_dodge\main\timer.cpp
+	"timer.hpp"
+	<SDL.h>
+
