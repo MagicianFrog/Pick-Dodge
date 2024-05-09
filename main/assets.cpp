@@ -17,6 +17,9 @@ SDL_Texture *heartSymbolTexture = nullptr;
 SDL_Texture *frameTexture = nullptr;
 
 Mix_Music *bgMusic = nullptr;
+Mix_Chunk *buttonClick = nullptr;
+Mix_Chunk *collectCoins = nullptr;
+Mix_Chunk *carCrashed = nullptr;
 vector <SDL_Rect> obstaclesClipRect;
 
 void clipObstacles();
@@ -39,6 +42,9 @@ void loadMedia(GameWindow *win){
     heartSymbolTexture              = win->loadTexture("assets/images/HUD/heart.png");
     frameTexture                    = win->loadTexture("assets/images/HUD/frame2.png");
     bgMusic                         = Mix_LoadMUS("assets/sfx/bgmusic.mp3");
+    buttonClick                     = Mix_LoadWAV("assets/sfx/button_click.wav");
+    collectCoins                    = Mix_LoadWAV("assets/sfx/collect_coins.wav");
+    carCrashed                      = Mix_LoadWAV("assets/sfx/car_crashed.wav");
     clipObstacles();
 }
 

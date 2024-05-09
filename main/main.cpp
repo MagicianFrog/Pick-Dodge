@@ -83,24 +83,29 @@ int main(int agrc, char* argv[]){
                                 state.unpause();
                             }
                         }
+                        Mix_PlayChannel(-1, buttonClick, 0);
                         break;
                     case SDLK_l:
                         if (state.isGameOver()) resetGame();
+                        Mix_PlayChannel(-1, buttonClick, 0);
                         break;
                     case SDLK_1:
                         transit();
+                        Mix_PlayChannel(-1, buttonClick, 0);
                         break;
                     case SDLK_2:
                         transit();
                         maxVelY = 900;
                         changeVelY = 6750;
                         PLAY_MODE = 2;
+                        Mix_PlayChannel(-1, buttonClick, 0);
                         break;
                     case SDLK_3:
                         transit();
                         maxVelY = 1000;
                         changeVelY = 6500;
                         PLAY_MODE = 3;
+                        Mix_PlayChannel(-1, buttonClick, 0);
                         break;
                 }
             }
@@ -221,6 +226,7 @@ void checkCollisionsWithObstacles(){
                 X.setVelY(background.getVelY());
                 state.updateLives(state.remainLives() - 1);
                 cout << "Crashed!" << endl;
+                Mix_PlayChannel(-1, carCrashed, 0);
             }
         }
     }
@@ -281,6 +287,7 @@ void checkCollisionsWithCoins(){
             if (!C.isClaimed() && checkCollision(player.getRect(), C.getRect())){
                 C.claimed();
                 state.updateCoins(state.currentCoins() + 1);
+                Mix_PlayChannel(-1, collectCoins, 0);
             }
         }
     }
