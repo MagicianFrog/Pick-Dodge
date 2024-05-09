@@ -6,7 +6,6 @@ using namespace std;
 
 extern vector <SDL_Texture*> backgroundTextures;
 extern SDL_Texture *carTexture;
-extern SDL_Texture *carInvisibleTexture;
 extern SDL_Texture *obstacleSpriteTexture;
 extern SDL_Texture *obstacleCrashedSpriteTexture;
 extern SDL_Texture *coinSprite;
@@ -20,7 +19,9 @@ extern SDL_Texture *heartSymbolTexture;
 extern SDL_Texture *frameTexture;
 extern vector <SDL_Rect> obstaclesClipRect;
 
+extern Mix_Music *bgMusic;
+
 void loadMedia(GameWindow *win);
-void destroyTextures();
+void destroyTexturesAndMusics();
 
 #endif // ASSETS_HPP

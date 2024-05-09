@@ -15,6 +15,8 @@ SDL_Texture *plainWhiteFontTexture = nullptr;
 SDL_Texture *plainBlackFontTexture = nullptr;
 SDL_Texture *heartSymbolTexture = nullptr;
 SDL_Texture *frameTexture = nullptr;
+
+Mix_Music *bgMusic = nullptr;
 vector <SDL_Rect> obstaclesClipRect;
 
 void clipObstacles();
@@ -25,7 +27,6 @@ void loadMedia(GameWindow *win){
     backgroundTextures[0]           = win->loadTexture("assets/images/roads/road_5.png");
     backgroundTextures[1]           = win->loadTexture("assets/images/roads/road_6.png");
     carTexture                      = win->loadTexture("assets/images/cars/car.png");
-    carInvisibleTexture             = win->loadTexture("assets/images/cars/car_invisible.png");
     obstacleSpriteTexture           = win->loadTexture("assets/images/cars/cars.png");
     obstacleCrashedSpriteTexture    = win->loadTexture("assets/images/cars/cars_crashed.png");
     coinSprite                      = win->loadTexture("assets/images/coin.png");
@@ -37,6 +38,7 @@ void loadMedia(GameWindow *win){
     plainBlackFontTexture           = win->loadTexture("assets/fonts/plain_black.png");
     heartSymbolTexture              = win->loadTexture("assets/images/HUD/heart.png");
     frameTexture                    = win->loadTexture("assets/images/HUD/frame2.png");
+    bgMusic                         = Mix_LoadMUS("assets/sfx/bgmusic.mp3");
     clipObstacles();
 }
 
@@ -57,7 +59,7 @@ void clipObstacles(){
     obstaclesClipRect.push_back({206, 435, 50, 95});
 }
 
-void destroyTextures(){
+void destroyTexturesAndMusics(){
     SDL_DestroyTexture(backgroundTextures[0]);
     SDL_DestroyTexture(backgroundTextures[1]);
     SDL_DestroyTexture(carTexture);
@@ -73,4 +75,5 @@ void destroyTextures(){
     SDL_DestroyTexture(plainBlackFontTexture);
     SDL_DestroyTexture(heartSymbolTexture);
     SDL_DestroyTexture(frameTexture);
+    Mix_FreeMusic(bgMusic);
 }
