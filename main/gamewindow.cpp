@@ -2,13 +2,17 @@
 using namespace std;
 
 bool GameWindow::init() {
-    if (SDL_Init(SDL_INIT_VIDEO) < 0){
-        cout << "SDL_Init failed" << endl;
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0){
+        cout << "SDL_Init failed";
         return false;
     }
     int imgFlags = IMG_INIT_PNG | IMG_INIT_JPG;
     if (!(IMG_Init(imgFlags) & (imgFlags))){
         cout << "IMG_Init failed" << endl;
+        return false;
+    }
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
+        cout << "Mix_OpenAudio failed";
         return false;
     }
     gWindow = SDL_CreateWindow(GAME_TITLE, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
