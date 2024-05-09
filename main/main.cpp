@@ -141,6 +141,9 @@ int main(int agrc, char* argv[]){
         frameTimer.start();
     }
     destroyTexturesAndMusics();
+    SDL_Quit();
+    IMG_Quit();
+    Mix_Quit();
     return 0;
 }
 
