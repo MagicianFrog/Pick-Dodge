@@ -21,9 +21,10 @@ class HUD {
         void drawParagraph(string text, SDL_Rect drect, SDL_Texture* tex, int letterWidth = 8, int letterHeight = 8, float SCALE = 1);
         void drawHearts(SDL_Texture *tex, float x, float y, int remainHearts, float scale, int alignX);
         void renderStartingScreen();
-        void renderGameOverScreen();
+        void renderDifficultyScreen();
+        void renderGameOverScreen(int _PLAY_MODE);
         void renderPauseScreen();
-        void renderInstructions(int id_tier[]);
+        void renderInstructions();
         void drawFadeOverlay(int fadePercentage);
 };
 

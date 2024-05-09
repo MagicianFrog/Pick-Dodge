@@ -122,10 +122,26 @@ void HUD::renderStartingScreen(){
     this->drawText(whiteFontTexture, "PRESS SPACE TO CONTINUE", 100, 570, 8, 8, 2.0f, HUD_FLOAT_LEFT);
 }
 
-void HUD::renderGameOverScreen(){
+void HUD::renderDifficultyScreen(){
+    this->drawFadeOverlay(75);
+    this->drawFadeOverlay(75);
+    this->drawText(blueFontTexture, "EASY", 100, 200, 8, 8, 5.0f, HUD_FLOAT_LEFT);
+    this->drawText(blueFontTexture, "1", 360, 200, 8, 8, 5.0f, HUD_FLOAT_LEFT);
+    this->drawText(blueFontTexture, "MEDIUM", 100, 250, 8, 8, 5.0f, HUD_FLOAT_LEFT);
+    this->drawText(blueFontTexture, "2", 360, 250, 8, 8, 5.0f, HUD_FLOAT_LEFT);
+    this->drawText(blueFontTexture, "HARD", 100, 300, 8, 8, 5.0f, HUD_FLOAT_LEFT);
+    this->drawText(blueFontTexture, "3", 360, 300, 8, 8, 5.0f, HUD_FLOAT_LEFT);
+    this->drawText(whiteFontTexture, "CHOOSE DIFFICULTY", 137, 570, 8, 8, 2.0f, HUD_FLOAT_LEFT);
+}
+
+void HUD::renderGameOverScreen(int _PLAY_MODE){
+    int currentHighScore;
+    if (_PLAY_MODE == 1) currentHighScore = gstate->currentHighScoreEasy();
+    else if (_PLAY_MODE == 2) currentHighScore = gstate->currentHighScoreMedium();
+    else if (_PLAY_MODE == 3) currentHighScore = gstate->currentHighScoreHard();
     this->drawFadeOverlay(75);
     this->drawText(metalFontTexture, "GAMEOVER!", 100, 160, 64, 64, 0.6f, HUD_FLOAT_LEFT);
-    if (gstate->currentCoins() >= gstate->currentHighscore()){
+    if (gstate->currentCoins() >= currentHighScore){
         this->drawText(whiteFontTexture, "NEW HIGHSCORE!", 110, 260, 8, 8, 3.0f, HUD_FLOAT_LEFT);
         this->drawText(goldenFontTexture, to_string(gstate->currentCoins()), 0, 215, 8, 8, 3.0f, HUD_FLOAT_CENTER);
     }
@@ -133,7 +149,7 @@ void HUD::renderGameOverScreen(){
         this->drawText(whiteFontTexture, "SCORE", 170, 220, 8, 8, 3.0f, HUD_FLOAT_LEFT);
         this->drawText(goldenFontTexture, to_string(gstate->currentCoins()), 285, 220, 8, 8, 3.0f, HUD_FLOAT_LEFT);
         this->drawText(whiteFontTexture, "HIGHSCORE", 85, 260, 8, 8, 3.0f, HUD_FLOAT_LEFT);
-        this->drawText(goldenFontTexture, to_string(gstate->currentHighscore()), 285, 260, 8, 8, 3.0f, HUD_FLOAT_LEFT);
+        this->drawText(goldenFontTexture, to_string(currentHighScore), 285, 260, 8, 8, 3.0f, HUD_FLOAT_LEFT);
     }
     this->drawText(whiteFontTexture, "PRESS L TO PLAY AGAIN", 100, 570, 8, 8, 2.0f, HUD_FLOAT_LEFT);
 }
@@ -143,7 +159,7 @@ void HUD::renderPauseScreen(){
     this->drawText(whiteFontTexture, "PRESS SPACE TO CONTINUE", 100, 250, 8, 8, 2.0f, HUD_FLOAT_LEFT);
 }
 
-void HUD::renderInstructions(int id_tier[]){
+void HUD::renderInstructions(){
     this->drawFadeOverlay(80);
     this->drawFadeOverlay(80);
     this->drawText(whiteFontTexture, "HOW TO PLAY?", 115, 25, 8, 8, 3.2f, HUD_FLOAT_LEFT);
@@ -161,12 +177,12 @@ void HUD::renderInstructions(int id_tier[]){
         if (i < 1) SDL_RenderDrawLine(this->gwin->gRenderer, box.x, box.y + box.h, box.x + box.w, box.y + box.h);
         this->drawText(
             plainWhiteFontTexture,
-            ins[i][id_tier[i] - 1].name,
+            ins[i].name,
             60, y + 15, 16, 16, 1.2f
         );
 
         paraRect = {60, y + 40, 380, 90};
-        this->drawParagraph(ins[i][id_tier[i] - 1].desc, paraRect, plainBlackFontTexture, 6, 12, 2);
+        this->drawParagraph(ins[i].desc, paraRect, plainBlackFontTexture, 6, 12, 2);
         y += box.h;
     }
 }
