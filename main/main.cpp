@@ -12,6 +12,9 @@ using namespace std;
 
 SDL_Rect column[NUMBER_OF_COLUMNS];
 int colVelocity[NUMBER_OF_COLUMNS];
+int maxVelY = 800;
+int changeVelY = 7000;
+int PLAY_MODE = 1;
 
 GameWindow win;
 GameState state;
@@ -37,6 +40,7 @@ void updateCoins();
 void checkCollisionsWithCoins();
 void manageCoinsMovement();
 void generateCoins();
+void transit();
 void resetGame();
 
 int main(int agrc, char* argv[]){
@@ -53,14 +57,11 @@ int main(int agrc, char* argv[]){
     // Load game's instructions: Pick & Dodge
     string Pick  = "instructions/Pick.txt";
     string Dodge = "instructions/Dodge.txt";
-    loadInstructions(0, Pick);
-    loadInstructions(1, Dodge);
+    loadInstructions(Pick);
+    loadInstructions(Dodge);
+    for (Instructions &A : ins) cout << A.name << endl << A.desc << endl << endl;
 
-    for (int i = 0; i < 2; i++){
-        for (Instructions &A : ins[i]) {
-            cout << A.name << endl << A.desc << endl << endl;
-        }
-    }
+
     bool quit = false;
     SDL_Event e;
     while (!quit){
@@ -70,8 +71,9 @@ int main(int agrc, char* argv[]){
                 switch (e.key.keysym.sym){
                     case SDLK_SPACE:
                         if (state.isStarting()) state.haltStart();
-                        else state.haltInstruct();
-                        if (!state.isGameOver() && !state.isInstructing()){
+                        else if (!state.isStarting() && state.isInstructing()) state.haltInstruct();
+                        // else if (!state.isInstructing() && state.isDfScreen()) state.haltDfScreen();
+                        if (!state.isGameOver() && !state.isInstructing() && !state.isDfScreen()){
                             if (!state.isPausing()){
                                 cout << "Pause!" << endl;
                                 state.pause();
@@ -85,6 +87,21 @@ int main(int agrc, char* argv[]){
                     case SDLK_l:
                         if (state.isGameOver()) resetGame();
                         break;
+                    case SDLK_1:
+                        transit();
+                        break;
+                    case SDLK_2:
+                        transit();
+                        maxVelY = 900;
+                        changeVelY = 6750;
+                        PLAY_MODE = 2;
+                        break;
+                    case SDLK_3:
+                        transit();
+                        maxVelY = 1000;
+                        changeVelY = 6500;
+                        PLAY_MODE = 3;
+                        break;
                 }
             }
         }
@@ -97,17 +114,17 @@ int main(int agrc, char* argv[]){
 
         // Render starting screen & instructions screen
         if (state.isStarting()) hud.renderStartingScreen();
-        if (state.isInstructing() && !state.isStarting()){
-            int id_tier[2] = {1, 1};
-            hud.renderInstructions(id_tier);
-        }
+        if (state.isInstructing() && !state.isStarting()) hud.renderInstructions();
+        if (state.isDfScreen() && !state.isInstructing()) hud.renderDifficultyScreen();
+
 
         // Pause the game or finish the game
-        else if (!state.isInstructing() && !state.isStarting()){
+        else if (!state.isStarting() && !state.isInstructing() && !state.isDfScreen()){
             if (state.isPausing())  hud.renderPauseScreen();
             if (state.isGameOver()){
-                state.updateHighScore(state.currentCoins());
-                hud.renderGameOverScreen();
+                state.updateHighScore(state.currentCoins(), PLAY_MODE);
+                hud.renderGameOverScreen(PLAY_MODE);
+                Mix_HaltMusic();
             }
         }
 
@@ -123,8 +140,17 @@ int main(int agrc, char* argv[]){
         }
         frameTimer.start();
     }
-    destroyTextures();
+    destroyTexturesAndMusics();
     return 0;
+}
+
+// Stop rendering difficulty screen and start the game + music
+void transit(){
+    if (!state.isInstructing() && state.isDfScreen()){
+        state.haltDfScreen();
+        state.unpause();
+    }
+    if (!Mix_PlayingMusic()) Mix_PlayMusic(bgMusic, -1);
 }
 
 void resetGame(){
@@ -169,9 +195,8 @@ void renderObstacles(){
 }
 
 void updateBgVelocity(){
-    // Increase the velocity after every 7000 ms
-    int maxVelY = 800;
-    if (veloTimer.elapsedTime() >= 7000 && background.getVelY() < maxVelY){
+    // Increase the velocity after every (changeVelY) ms
+    if (veloTimer.elapsedTime() >= changeVelY && background.getVelY() < maxVelY){
         state.updateStage(state.currentStage() + 1);
         background.setVelY(background.getVelY() + 30);
         veloTimer.start();
@@ -277,7 +302,7 @@ void manageCoinsMovement(){
 void generateCoins(){
     for (int i = 0; i < NUMBER_OF_COLUMNS; i++){
         if (coins[i].empty()){
-            // The probabilty of dropping coins on the road column
+            // The probability of dropping coins on the road column
             if (rand() % 500) continue;
             int numberOfCoins = rand() % 6 + 5;
             int gap = 25;
