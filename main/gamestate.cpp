@@ -2,7 +2,9 @@
 #include "params.hpp"
 #include <fstream>
 #include <iostream>
-#define HIGHSCORE_DATA_FILE "game_data/highscore.txt"
+#define HIGHSCORE_DATA_FILE_EASY "game_data/highScoreEasy.txt"
+#define HIGHSCORE_DATA_FILE_MEDIUM "game_data/highScoreMedium.txt"
+#define HIGHSCORE_DATA_FILE_HARD "game_data/highScoreHard.txt"
 using namespace std;
 
 int getHighScoreFromDataFile(string path){
@@ -43,8 +45,11 @@ void GameState::reset(){
     this->paused = 1;
     this->starting = 1;
     this->instructing = 1;
+    this->dfScreen = 1;
     this->gameOver = 0;
-    this->highScore = getHighScoreFromDataFile(HIGHSCORE_DATA_FILE);
+    this->highScoreEasy = getHighScoreFromDataFile(HIGHSCORE_DATA_FILE_EASY);
+    this->highScoreMedium = getHighScoreFromDataFile(HIGHSCORE_DATA_FILE_MEDIUM);
+    this->highScoreHard = getHighScoreFromDataFile(HIGHSCORE_DATA_FILE_HARD);
 }
 
 void GameState::pause(){
@@ -67,12 +72,20 @@ void GameState::haltInstruct(){
     this->instructing = 0;
 }
 
+void GameState::haltDfScreen(){
+    this->dfScreen = 0;
+}
+
 bool GameState::isStarting(){
     return this->starting;
 }
 
 bool GameState::isInstructing(){
     return this->instructing;
+}
+
+bool GameState::isDfScreen(){
+    return this->dfScreen;
 }
 
 void GameState::updateDistance(int _distance){
@@ -96,11 +109,25 @@ void GameState::updateCoins(int _coin){
     this->coins = _coin;
 }
 
-void GameState::updateHighScore(int _highscore){
+void GameState::updateHighScore(int _highscore, int _PLAY_MODE){
     if (gameOver){
-        if (this->highScore < _highscore){
-            this->highScore = _highscore;
-            updateHighScoreToDataFile(HIGHSCORE_DATA_FILE, this->highScore);
+        if (_PLAY_MODE == 1){
+            if (this->highScoreEasy < _highscore){
+                this->highScoreEasy = _highscore;
+                updateHighScoreToDataFile(HIGHSCORE_DATA_FILE_EASY, this->highScoreEasy);
+            }
+        }
+        else if (_PLAY_MODE == 2){
+            if (this->highScoreMedium < _highscore){
+                this->highScoreMedium = _highscore;
+                updateHighScoreToDataFile(HIGHSCORE_DATA_FILE_MEDIUM, this->highScoreMedium);
+            }
+        }
+        else if (_PLAY_MODE == 3){
+            if (this->highScoreHard < _highscore){
+                this->highScoreHard = _highscore;
+                updateHighScoreToDataFile(HIGHSCORE_DATA_FILE_HARD, this->highScoreHard);
+            }
         }
     }
 }
@@ -129,6 +156,14 @@ int GameState::currentStage(){
     return this->stage;
 }
 
-int GameState::currentHighscore(){
-    return this->highScore;
+int GameState::currentHighScoreEasy(){
+    return this->highScoreEasy;
+}
+
+int GameState::currentHighScoreMedium(){
+    return this->highScoreMedium;
+}
+
+int GameState::currentHighScoreHard(){
+    return this->highScoreHard;
 }
