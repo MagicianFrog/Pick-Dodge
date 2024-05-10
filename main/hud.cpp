@@ -151,7 +151,7 @@ void HUD::renderGameOverScreen(int _PLAY_MODE){
         this->drawText(whiteFontTexture, "HIGHSCORE", 85, 260, 8, 8, 3.0f, HUD_FLOAT_LEFT);
         this->drawText(goldenFontTexture, to_string(currentHighScore), 285, 260, 8, 8, 3.0f, HUD_FLOAT_LEFT);
     }
-    this->drawText(whiteFontTexture, "PRESS L TO PLAY AGAIN", 100, 570, 8, 8, 2.0f, HUD_FLOAT_LEFT);
+    this->drawText(whiteFontTexture, "PRESS L TO PLAY AGAIN", 115, 570, 8, 8, 2.0f, HUD_FLOAT_LEFT);
 }
 
 void HUD::renderPauseScreen(){
