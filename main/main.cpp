@@ -83,29 +83,29 @@ int main(int agrc, char* argv[]){
                                 state.unpause();
                             }
                         }
-                        Mix_PlayChannel(-1, buttonClick, 0);
+                        Mix_PlayChannel(-1, buttonPress, 0);
                         break;
                     case SDLK_l:
                         if (state.isGameOver()) resetGame();
-                        Mix_PlayChannel(-1, buttonClick, 0);
+                        Mix_PlayChannel(-1, buttonPress, 0);
                         break;
                     case SDLK_1:
                         transit();
-                        Mix_PlayChannel(-1, buttonClick, 0);
+                        Mix_PlayChannel(-1, buttonPress, 0);
                         break;
                     case SDLK_2:
                         transit();
                         maxVelY = 900;
                         changeVelY = 6750;
                         PLAY_MODE = 2;
-                        Mix_PlayChannel(-1, buttonClick, 0);
+                        Mix_PlayChannel(-1, buttonPress, 0);
                         break;
                     case SDLK_3:
                         transit();
                         maxVelY = 1000;
                         changeVelY = 6500;
                         PLAY_MODE = 3;
-                        Mix_PlayChannel(-1, buttonClick, 0);
+                        Mix_PlayChannel(-1, buttonPress, 0);
                         break;
                 }
             }
@@ -145,7 +145,8 @@ int main(int agrc, char* argv[]){
         }
         frameTimer.start();
     }
-    destroyTexturesAndMusics();
+    destroyTextures();
+    destroySounds();
     SDL_Quit();
     IMG_Quit();
     Mix_Quit();
