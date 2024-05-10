@@ -20,11 +20,12 @@ extern SDL_Texture *frameTexture;
 extern vector <SDL_Rect> obstaclesClipRect;
 
 extern Mix_Music *bgMusic;
-extern Mix_Chunk *buttonClick;
+extern Mix_Chunk *buttonPress;
 extern Mix_Chunk *collectCoins;
 extern Mix_Chunk *carCrashed;
 
 void loadMedia(GameWindow *win);
-void destroyTexturesAndMusics();
+void destroyTextures();
+void destroySounds();
 
 #endif // ASSETS_HPP

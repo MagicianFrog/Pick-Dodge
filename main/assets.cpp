@@ -17,7 +17,7 @@ SDL_Texture *heartSymbolTexture = nullptr;
 SDL_Texture *frameTexture = nullptr;
 
 Mix_Music *bgMusic = nullptr;
-Mix_Chunk *buttonClick = nullptr;
+Mix_Chunk *buttonPress = nullptr;
 Mix_Chunk *collectCoins = nullptr;
 Mix_Chunk *carCrashed = nullptr;
 vector <SDL_Rect> obstaclesClipRect;
@@ -42,7 +42,7 @@ void loadMedia(GameWindow *win){
     heartSymbolTexture              = win->loadTexture("assets/images/HUD/heart.png");
     frameTexture                    = win->loadTexture("assets/images/HUD/frame2.png");
     bgMusic                         = Mix_LoadMUS("assets/sfx/bgmusic.mp3");
-    buttonClick                     = Mix_LoadWAV("assets/sfx/button_click.wav");
+    buttonPress                     = Mix_LoadWAV("assets/sfx/button_press.wav");
     collectCoins                    = Mix_LoadWAV("assets/sfx/collect_coins.wav");
     carCrashed                      = Mix_LoadWAV("assets/sfx/car_crashed.wav");
     clipObstacles();
@@ -65,7 +65,7 @@ void clipObstacles(){
     obstaclesClipRect.push_back({206, 435, 50, 95});
 }
 
-void destroyTexturesAndMusics(){
+void destroyTextures(){
     SDL_DestroyTexture(backgroundTextures[0]);
     SDL_DestroyTexture(backgroundTextures[1]);
     SDL_DestroyTexture(carTexture);
@@ -81,5 +81,12 @@ void destroyTexturesAndMusics(){
     SDL_DestroyTexture(plainBlackFontTexture);
     SDL_DestroyTexture(heartSymbolTexture);
     SDL_DestroyTexture(frameTexture);
+}
+
+
+void destroySounds(){
     Mix_FreeMusic(bgMusic);
+    Mix_FreeChunk(buttonPress);
+    Mix_FreeChunk(collectCoins);
+    Mix_FreeChunk(carCrashed);
 }
