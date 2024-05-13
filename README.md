@@ -16,16 +16,16 @@ Người chơi sẽ bấm số 1, 2 hoặc 3 tương đương với 3 độ khó
 
 3. Màn hình chơi:
  
-+) Xe của người chơi:
+Xe của người chơi:
   - Xe của người chơi là xe màu trắng, được người chơi điều khiển bằng chuột máy tính hoặc touchpad.
   - Khi xe đi càng xa, tốc độ xe càng tăng, người chơi có thể biết mình đã đi xa tới đâu thông qua quãng đường ở góc trên bên phải màn hình.
     
-+) Xe chướng ngại vật:
+Xe chướng ngại vật:
   - Tất cả các xe khác trên 4 làn đường là các xe chướng ngại vật.
   - Các xe trên một làn đường có cùng một tốc độ, xuất hiện ngẫu nhiên trên cả 4 làn đường.
   - Người chơi cần tránh va chạm các xe khi di chuyển trên đường, nếu va chạm 1 lần sẽ mất một mạng, trò chơi sẽ kết thúc nếu va chạm xảy ra 5 lần.
 
-+) Tiền:
+Tiền:
   - Các đồng xu trong trò chơi có cùng một tốc độ, xuất hiện ngẫu nhiên trên 4 làn đường.
   - Số tiền nhặt được chính là số điểm cuối cùng trong trò chơi, người chơi cần cố gắng thu thập được nhiều tiền nhất có thể.
 
