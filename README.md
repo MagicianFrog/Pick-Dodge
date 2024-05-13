@@ -8,15 +8,15 @@ Pick & Dodge là một trò chơi thuộc thể loại đua xe và phản xạ. 
 
 Màn hình sẽ xuất hiện khi người chơi bắt đầu khởi động trò chơi.
 
-<img title="" src="readme_assets/starting_screen.png" alt="Starting Screen" data-align="left">
+<img title="" src="readme_assets/game/starting_screen.png" alt="Starting Screen" data-align="left">
 
 Người chơi cần bấm phím Space để tiếp tục đến với màn hình hướng dẫn của trò chơi.
 
-<img title="" src="readme_assets/instructing_screen.png" alt="Instructing Screen" data-align="left">
+<img title="" src="readme_assets/game/instructing_screen.png" alt="Instructing Screen" data-align="left">
 
 Người chơi cần bấm phím Space một lần nữa để đến với màn hình chọn độ khó. Độ khó được chọn bằng cách bấm phím 1, 2 hoặc 3 tương đương lần lượt với 3 độ khó Easy, Medium và Hard của trò chơi này.
 
-<img title="" src="readme_assets/difficulty_screen.png" alt="Difficulty Screen" data-align="left">
+<img title="" src="readme_assets/game/difficulty_screen.png" alt="Difficulty Screen" data-align="left">
 
 | ĐỘ KHÓ | MÔ TẢ                                                  |
 | ------ | ------------------------------------------------------ |
@@ -26,7 +26,7 @@ Người chơi cần bấm phím Space một lần nữa để đến với màn
 
 ## 2. <ins>Màn hình chơi</ins>:
 
-<img title="" src="readme_assets/playing_screen_3.png" alt="Playing Screen 3" data-align="left">
+<img title="" src="readme_assets/game/playing_screen_3.png" alt="Playing Screen 3" data-align="left">
 
 **Xe của người chơi**
 
@@ -51,10 +51,10 @@ Trong quá trình chơi, người chơi có thể bấm phím Space để tạm 
 
 - Khi kết thúc, trò chơi sẽ cho biết số điểm của người chơi và số điểm kỉ lục đã được lưu lại ở các lần chơi trước ứng với độ khó đã được người chơi chọn.
 
-<img title="" src="readme_assets/no_highscore.png" alt="Nohighscore Screen" data-align="left">
+<img title="" src="readme_assets/game/no_highscore.png" alt="Nohighscore Screen" data-align="left">
 
 - Nếu số điểm người chơi đạt được là số điểm kỉ lục tương ứng với độ khó người chơi chọn, màn hình kết thúc sẽ thông báo điều đó:
 
-<img title="" src="readme_assets/highscore.png" alt="Highscore Screen" data-align="left">
+<img title="" src="readme_assets/game/highscore.png" alt="Highscore Screen" data-align="left">
 
 - Sau khi kết thúc lượt chơi, người chơi có thể bấm phím "L" để bắt đầu một lần chơi mới.
