@@ -2,6 +2,16 @@
 
 Pick & Dodge là một trò chơi thuộc thể loại đua xe và phản xạ. Người chơi cần sử dụng khả năng phản xạ của mình để tránh các xe khác trên đường đi và tồn tại lâu nhất có thể. Trong trò chơi này, số tiền nhặt được trong trò chơi chính là số điểm cuối cùng của trò chơi. Vì vậy, người chơi cũng cần đồng thời thu về nhiều tiền nhất có thể để đạt được số điểm cao nhất.
 
+# I. <ins>Cài đặt trò chơi</ins>:
+
+Người chơi có thể cài đặt trò chơi thông qua đường dẫn [tại đây](https://github.com/Granchio0912/Pick-Dodge/releases/).
+
+<img title="" src="readme_assets/downloading/releases.png" alt="releasespic" data-align="left">
+
+Sau khi cài đặt file pick_dodge.zip, người chơi cần giải nén và chạy file PICK-DODGE để bắt đầu chơi trò chơi.
+
+<img title="" src="readme_assets/downloading/extract.png" alt="extractpic" data-align="left">
+
 # II. <ins>Hướng dẫn chơi</ins>:
 
 ## 1. <ins>Màn hình bắt đầu</ins>:
