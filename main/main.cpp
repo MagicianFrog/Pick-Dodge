@@ -186,8 +186,8 @@ void renderGameScreen(){
     hud.drawHearts(heartSymbolTexture, 30, 30, state.remainLives(), 2.0f, HUD_FLOAT_LEFT);
 }
 
+// Create the gap between columns
 void generateColumnRanges(){
-    // Create the gap between columns
     int gap = (SCREEN_WIDTH - OBSTACLE_WIDTH * NUMBER_OF_COLUMNS - 2 * ROADSIDE_WIDTH) / (NUMBER_OF_COLUMNS + 1);
     for (int i = 0; i < NUMBER_OF_COLUMNS; i++){
         column[i].x = ROADSIDE_WIDTH + OBSTACLE_WIDTH * i + gap * (i + 1);
@@ -203,8 +203,8 @@ void renderObstacles(){
     }
 }
 
+// Increase the velocity after every (changeVelY) ms
 void updateBgVelocity(){
-    // Increase the velocity after every (changeVelY) ms
     if (veloTimer.elapsedTime() >= changeVelY && background.getVelY() < maxVelY){
         state.updateStage(state.currentStage() + 1);
         background.setVelY(background.getVelY() + 30);
@@ -221,7 +221,7 @@ void updateObstacles(){
 void checkCollisionsWithObstacles(){
     for (int i = 0; i < NUMBER_OF_COLUMNS; i++){
         for (Obstacle &X : obstacles[i]){
-            // Set the velocity of the obstacle after being crashed
+            // Set the velocity of the obstacles after being crashed
             if (!X.isCrashed() && checkCollision(player.getRect(), X.getRect())){
                 X.crash();
                 X.setVelY(background.getVelY());
@@ -236,13 +236,11 @@ void checkCollisionsWithObstacles(){
 void manageObstaclesMovement(){
     for (int i = 0; i < NUMBER_OF_COLUMNS; i++){
         // Move the obstacles
-        for (Obstacle& X : obstacles[i]){
-            X.setPos(column[i].x, X.getPosY() + X.getVelY() * frameTimer.elapsedTime() / 1000.f);
-        }
+        for (Obstacle &X : obstacles[i]) X.setPos(column[i].x, X.getPosY() + X.getVelY() * frameTimer.elapsedTime() / 1000.f);
+
         // Remove all the off-screen obstacles
-        while (!obstacles[i].empty() && obstacles[i].front().getPosY() >= SCREEN_HEIGHT){
-            obstacles[i].pop_front();
-        }
+        while (!obstacles[i].empty() && obstacles[i].front().getPosY() >= SCREEN_HEIGHT) obstacles[i].pop_front();
+
     }
 }
 
