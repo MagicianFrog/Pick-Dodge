@@ -27,8 +27,8 @@ void clipGUI();
 
 void loadMedia(GameWindow *win){
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "nearest");
-    backgroundTextures[0]           = win->loadTexture("assets/images/roads/road_5.png");
-    backgroundTextures[1]           = win->loadTexture("assets/images/roads/road_6.png");
+    backgroundTextures[0]           = win->loadTexture("assets/images/roads/road_1.png");
+    backgroundTextures[1]           = win->loadTexture("assets/images/roads/road_1.png");
     carTexture                      = win->loadTexture("assets/images/cars/car.png");
     obstacleSpriteTexture           = win->loadTexture("assets/images/cars/cars.png");
     obstacleCrashedSpriteTexture    = win->loadTexture("assets/images/cars/cars_crashed.png");
