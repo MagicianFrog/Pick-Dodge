@@ -8,7 +8,7 @@ Người chơi có thể cài đặt trò chơi (với tag Latest) thông qua đ
 
 <img title="" src="readme_assets/downloading/releases.png" alt="releasespic" data-align="left">
 
-Sau khi cài đặt file pick_dodge.zip, người chơi cần giải nén và chạy file PICK-DODGE để bắt đầu chơi trò chơi.
+Sau khi cài đặt file pick_dodge_v2.zip, người chơi cần giải nén và chạy file  PICK_&_DODGE để bắt đầu chơi trò chơi.
 
 <img title="" src="readme_assets/downloading/extract.png" alt="extractpic" data-align="left">
 
