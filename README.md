@@ -4,7 +4,7 @@ Pick & Dodge là một trò chơi thuộc thể loại đua xe và phản xạ. 
 
 # I. <ins>Cài đặt trò chơi</ins>:
 
-Người chơi có thể cài đặt trò chơi thông qua đường dẫn [tại đây](https://github.com/Granchio0912/Pick-Dodge/releases/).
+Người chơi có thể cài đặt trò chơi (với tag Latest) thông qua đường dẫn [tại đây](https://github.com/Granchio0912/Pick-Dodge/releases/).
 
 <img title="" src="readme_assets/downloading/releases.png" alt="releasespic" data-align="left">
 
@@ -40,22 +40,24 @@ Người chơi cần bấm phím Space một lần nữa để đến với màn
 
 **Xe của người chơi**
 
-- Xe của người chơi là xe màu trắng (5), được người chơi điều khiển bằng chuột hoặc touchpad của máy tính.
+- Xe của người chơi là xe màu trắng (3), được người chơi điều khiển bằng chuột hoặc touchpad của máy tính.
 - Khi xe đi càng xa, tốc độ xe càng tăng, người chơi có thể theo dõi quãng đường đi được ở dòng trên - góc trên bên phải của màn hình (2).
 
 **Xe chướng ngại vật**
 
-- Tất cả các xe khác trên 4 làn đường là các xe chướng ngại vật (3).
+- Tất cả các xe khác trên 4 làn đường là các xe chướng ngại vật (4).
 - Các xe trên một làn đường có cùng một tốc độ, xuất hiện ngẫu nhiên trên cả 4 làn đường.
 - Người chơi cần tránh va chạm các xe khi di chuyển trên đường, nếu va chạm 1 lần sẽ mất một mạng (1), trò chơi sẽ kết thúc nếu va chạm xảy ra 5 lần.
 
 **Tiền**
 
-- Các đồng tiền (4) trong trò chơi có cùng một tốc độ di chuyển, xuất hiện ngẫu nhiên trên 4 làn đường.
+- Các đồng tiền (5) trong trò chơi có cùng một tốc độ di chuyển, xuất hiện ngẫu nhiên trên 4 làn đường.
 - Số tiền nhặt được chính là số điểm cuối cùng trong trò chơi, người chơi cần cố gắng thu thập được nhiều tiền nhất có thể.
 - Người chơi có thể theo dõi số tiền đã nhặt được trong quá trình ở dòng dưới - góc trên bên phải của màn hình (2).
 
-Trong quá trình chơi, người chơi có thể bấm phím Space để tạm dừng trò chơi bất kỳ lúc nào.
+<img title="" src="readme_assets\game\pausing_screen.png" alt="pausing" data-align="left">
+
+Trong quá trình chơi, người chơi có thể bấm phím Space để tạm dừng trò chơi và bấm phím Space một lần nữa để tiếp tục trò chơi.
 
 ## 3. <ins>Màn hình kết thúc</ins>:
 
@@ -68,3 +70,15 @@ Trong quá trình chơi, người chơi có thể bấm phím Space để tạm 
 <img title="" src="readme_assets/game/highscore.png" alt="Highscore Screen" data-align="left">
 
 - Sau khi kết thúc lượt chơi, người chơi có thể bấm phím "L" để bắt đầu một lần chơi mới.
+
+# III. <ins>Credits</ins>:
+
+- **Font pack** của [zingot](https://zingot.itch.io/fontpack)
+
+- **Sprite xe ô tô** của [tokka](https://tokka.itch.io/top-down-car)
+
+- **Sprite đồng tiền** của [TotusLotus](https://totuslotus.itch.io/pixel-coins)
+
+- **Background** của [Mariusz Szulc](https://www.behance.net/gallery/29946977/Must-Deliver-Backgrounds)
+
+- Nhạc nền [SURV1V3](https://www.youtube.com/watch?v=aSSNGTSeqCI&list=PLTTPXh1mAdvNcWsNVVxxlVtU46u9ZqQ-r&ab_channel=RedlineRacer) của [Daiki Kasho](https://en.wikipedia.org/wiki/Daiki_Kasho)
